@@ -1,65 +1,41 @@
 require "application_system_test_case"
 
 class ProjectsTest < ApplicationSystemTestCase
-  # test "visiting the index" do
-  #   visit projects_url
-  #
-  #   assert_selector "h1", text: "Project"
-  # end
-
   setup do
-    @project = projects(:first) # Reference to the first fixture project
+    @project = projects(:one)
   end
 
-  test "Creating a new project" do
-    # When we visit the Quotes#index page
-    # we expect to see a title with the text "Quotes"
-    visit projects_path
+  test "visiting the index" do
+    visit projects_url
     assert_selector "h1", text: "Projects"
+  end
 
-    # When we click on the link with the text "New quote"
-    # we expect to land on a page with the title "New quote"
+  test "should create project" do
+    visit projects_url
     click_on "New project"
-    assert_selector "h1", text: "New project"
 
-    # When we fill in the name input with "Capybara quote"
-    # and we click on "Create Quote"
-    fill_in "Name", with: "Capybara project"
-    click_on "Create project"
+    fill_in "Name", with: @project.name
+    click_on "Create Project"
 
-    # We expect to be back on the page with the title "Quotes"
-    # and to see our "Capybara quote" added to the list
-    assert_selector "h1", text: "Projects"
-    assert_text "Capybara project"
+    assert_text "Project was successfully created"
+    click_on "Back"
   end
 
-  test "Showing a project" do
-    visit projects_path
-    click_link @project.name
+  test "should update Project" do
+    visit project_url(@project)
+    click_on "Edit this project", match: :first
 
-    assert_selector "h1", text: @project.name
+    fill_in "Name", with: @project.name
+    click_on "Update Project"
+
+    assert_text "Project was successfully updated"
+    click_on "Back"
   end
 
-  test "Updating a project" do
-    visit projects_path
-    assert_selector "h1", text: "Projects"
+  test "should destroy Project" do
+    visit project_url(@project)
+    click_on "Destroy this project", match: :first
 
-    click_on "Edit", match: :first
-    assert_selector "h1", text: "Edit project"
-
-    fill_in "Name", with: "Updated project"
-    click_on "Update project"
-
-    assert_selector "h1", text: "Projects"
-    assert_text "Updated project"
+    assert_text "Project was successfully destroyed"
   end
-
-  test "Destroying a project" do
-    visit projects_path
-    assert_text @project.name
-
-    click_on "Delete", match: :first
-    assert_no_text @project.name
-  end
-
 end

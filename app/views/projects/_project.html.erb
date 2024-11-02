@@ -1,12 +1,7 @@
-<div class="project">
-  <%= link_to project.name, project_path(project) %>
-  <div class="project__actions">
-    <%= button_to "Delete",
-                  project_path(project),
-                  method: :delete,
-                  class: "btn btn--light" %>
-    <%= link_to "Edit",
-                edit_project_path(project),
-                class: "btn btn--light" %>
-  </div>
+<div id="<%= dom_id project %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= project.name %>
+  </p>
+
 </div>
