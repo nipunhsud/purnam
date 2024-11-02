@@ -2,6 +2,7 @@ require "test_helper"
 
 class ProjectsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    authenticate_user(:one)
     @project = projects(:one)
   end
 
