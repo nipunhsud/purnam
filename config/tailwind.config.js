@@ -11,7 +11,7 @@ module.exports = {
   ],
   theme: {
     colors: {
-      primary: colors.sky,
+      primary: colors.blue,
       secondary: colors.rose,
       danger: colors.red,
       success: colors.emerald,

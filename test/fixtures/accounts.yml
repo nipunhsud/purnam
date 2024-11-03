@@ -9,3 +9,8 @@ two:
   first_name: MyString
   last_name: MyString
   user: two
+
+account_with_no_records:
+  first_name: <%= Faker::Name.first_name %>
+  last_name: <%= Faker::Name.last_name %>
+  user: user_with_no_records

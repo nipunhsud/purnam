@@ -15,7 +15,7 @@ class UserTest < ActiveSupport::TestCase
 
   # Associations
   test "should test all associations of user" do
-    %i[account sessions].each do |association|
+    %i[account sessions projects project_collaborators].each do |association|
       assert_association @user, association
     end
   end

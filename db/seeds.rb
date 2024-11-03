@@ -13,6 +13,7 @@ exit if Rails.env.production?
 # Cleanup
 User.destroy_all
 Project.destroy_all
+ProjectCollaborator.destroy_all
 
 # Seed Users and Accounts
 user_hashes = 10.times.map do |i|
@@ -28,7 +29,34 @@ end
 
 User.create(user_hashes)
 
-# Seed Projects
-project_hashes = 10.times.map { { name: Faker::Lorem.word.titleize } }
+accounts = Account.all
 
-Project.create(project_hashes)
+# Seed Projects
+project_hashes = 10.times.map do |i|
+  owner_account = i.even? ? accounts.first : accounts[1..-1].sample
+
+  random_starting_day = rand(1..100).days.ago
+  random_ending_day = rand(60..120).days.from_now
+
+  {
+    name: Faker::Lorem.word.titleize,
+    owner_account:,
+    description: Faker::Lorem.paragraphs.join,
+    start_date: random_starting_day,
+    end_date: random_ending_day
+  }
+end
+
+projects = Project.create(project_hashes)
+
+# Seed Project Collaborators
+projects.each do |project|
+  existing_collaborators = project.collaborators
+  possible_candidate_collaborators = Account.excluding(existing_collaborators)
+
+  project_collaborator_hashes = possible_candidate_collaborators.sample(rand(3..6)).map do |collaborator|
+    { project:, account: collaborator }
+  end
+
+  ProjectCollaborator.create(project_collaborator_hashes)
+end

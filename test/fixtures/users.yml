@@ -9,3 +9,7 @@ two:
 without_account:
   email_address: user@without_account.com
   password_digest: <%= BCrypt::Password.create("password") %>
+
+user_with_no_records:
+  email_address: user@with_no_records.com
+  password_digest: <%= BCrypt::Password.create("password") %>
