@@ -14,6 +14,7 @@ class ProjectComponent < ViewComponent::Base
 }.with_indifferent_access
 
   def initialize(project:)
+
     @project = project
     @role = ProjectCollaborator.roles.key(@project.role).to_sym
 

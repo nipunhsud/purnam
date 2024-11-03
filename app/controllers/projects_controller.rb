@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  turbo_only only: %i[ new edit ]
   before_action :set_project, only: %i[ show edit update destroy ]
 
   def index
@@ -20,16 +21,19 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
 
-    if @project.save
-      redirect_to @project, notice: "Project was successfully created."
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @project.save
+        format.html { redirect_to projects_path, notice: "Project was successfully created." }
+        format.turbo_stream
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 
   def update
     if @project.update(project_params)
-      redirect_to @project, notice: "Project was successfully updated."
+      redirect_to projects_path, notice: "Project was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -47,6 +51,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.expect(project: %i[ name ])
+      params.expect(project: %i[ name description start_date end_date ]).merge(owner_account: current_account)
     end
 end

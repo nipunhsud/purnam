@@ -1,0 +1,7 @@
+<% @project = TemporaryRecord.from_record(@project, role: ProjectCollaborator.roles[:owner]) %>
+
+<%= turbo_stream.update :new_project %>
+
+<%= turbo_stream.prepend :projects do %>
+  <%= component ProjectComponent, project: @project %>
+<% end %>
