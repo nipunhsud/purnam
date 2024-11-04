@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    cols = ['accounts.*', 'project_collaborators.role', 'project_collaborators.id as project_collaborator_id' ]
+    cols = [ "accounts.*", "project_collaborators.role", "project_collaborators.id as project_collaborator_id" ]
 
     @collaborators = @project.collaborators.joins(:project_collaborators).distinct.select(*cols)
   end
