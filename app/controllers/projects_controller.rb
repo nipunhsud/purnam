@@ -3,12 +3,13 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
 
   def index
-    cols = %w[id name description start_date end_date project_collaborators.role]
-
-    @projects = current_account.projects.joins(:project_collaborators).distinct.select(*cols)
+    @projects = current_account.projects.joins(:project_collaborators).distinct.select("projects.*", "project_collaborators.role")
   end
 
   def show
+    cols = ['accounts.*', 'project_collaborators.role', 'project_collaborators.id as project_collaborator_id' ]
+
+    @collaborators = @project.collaborators.joins(:project_collaborators).distinct.select(*cols)
   end
 
   def new

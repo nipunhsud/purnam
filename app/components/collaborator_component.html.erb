@@ -1,0 +1,13 @@
+<div
+  id="project_collaborator_<%= @collaborator.project_collaborator_id %>"
+  class="flex items-center gap-2.5 <%= @text_color %>"
+>
+  <span>
+    <%= @collaborator.full_name %>
+  </span>
+  <span
+    class="<%= @border_color %> text-xs rounded-full px-2.5 py-0.5 border"
+  >
+    <%= @role.to_s.titleize %>
+  </span>
+</div>
