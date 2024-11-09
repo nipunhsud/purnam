@@ -64,7 +64,5 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     assert_difference("Project.count", -1) do
       delete project_url(@project), as: :turbo_stream
     end
-
-    assert_redirected_to projects_url
   end
 end

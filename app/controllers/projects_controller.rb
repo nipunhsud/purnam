@@ -39,8 +39,6 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy!
-
-    redirect_to projects_path, status: :see_other, notice: "Project was successfully destroyed."
   end
 
   private
