@@ -7,7 +7,6 @@ class Account < ApplicationRecord
   has_many :collaboration_projects, through: :project_collaborators, source: :project
   has_many :stakeholder_projects, through: :project_stakeholders, source: :project
 
-
   normalizes :first_name, with: ->(name) { name.strip }
   normalizes :last_name, with: ->(name) { name.strip }
 

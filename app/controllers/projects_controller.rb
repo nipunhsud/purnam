@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
-  turbo_only only: %i[ new edit ]
+  turbo_only only: %i[new create edit update destroy]
+
   before_action :set_project, only: %i[ show edit update destroy ]
 
   def index

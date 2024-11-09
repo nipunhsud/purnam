@@ -1,5 +1,6 @@
 class ProjectStakeholdersController < ApplicationController
-  turbo_only only: %i[new edit destroy]
+  turbo_only only: %i[new create edit update destroy]
+
   before_action :set_project
   before_action :set_project_stakeholder, only: %i[edit update destroy]
   before_action :set_accounts, only: %i[new create edit update]
@@ -40,6 +41,6 @@ class ProjectStakeholdersController < ApplicationController
     end
 
     def project_stakeholder_params
-      params.expect(project_stakeholder: [:account_id])
+      params.expect(project_stakeholder: [ :account_id ])
     end
 end

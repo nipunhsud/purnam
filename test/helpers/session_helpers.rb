@@ -1,7 +1,7 @@
 require "test_helper"
 
-class AuthenticationFlowTest < ActionDispatch::IntegrationTest
-  protected
+module SessionHelpers
+  private
     def visit_root_path
       get root_url
 

@@ -4,8 +4,10 @@ class User < ApplicationRecord
   has_one :account, dependent: :destroy
   has_many :sessions, dependent: :destroy
 
-  has_many :projects, through: :account
+  has_many :collaboration_projects, through: :account
   has_many :project_collaborators, through: :account
+  has_many :project_stakeholders, through: :account
+  has_many :stakeholder_projects, through: :account
 
   normalizes :email_address, with: ->(email) { email.strip.downcase }
 

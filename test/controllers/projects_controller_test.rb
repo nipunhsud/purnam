@@ -25,14 +25,14 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create project" do
     assert_difference("Project.count") do
-      post projects_url, params: { project: @project_params }
+      post projects_url, params: { project: @project_params }, as: :turbo_stream
     end
 
-    assert_redirected_to projects_url
+    assert_response :success
   end
 
   test "should render error if project creation fails" do
-    post projects_url, params: { project: @project_params.merge(name: nil) }
+    post projects_url, params: { project: @project_params.merge(name: nil) }, as: :turbo_stream
 
     assert_response :unprocessable_entity
   end
@@ -49,20 +49,20 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update project" do
-    patch project_url(@project), params: { project: { name: "Other Name" } }
+    patch project_url(@project), params: { project: { name: "Other Name" } }, as: :turbo_stream
 
     assert @project.reload.name == "Other Name"
     assert_redirected_to projects_url
   end
 
   test "should render error if project update fails" do
-    patch project_url(@project), params: { project: { name: nil } }
+    patch project_url(@project), params: { project: { name: nil } }, as: :turbo_stream
     assert_response :unprocessable_entity
   end
 
   test "should destroy project" do
     assert_difference("Project.count", -1) do
-      delete project_url(@project)
+      delete project_url(@project), as: :turbo_stream
     end
 
     assert_redirected_to projects_url

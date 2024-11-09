@@ -1,6 +1,8 @@
-require_relative "authentication_flow_test"
+require_relative "../helpers/session_helpers"
 
-class RegistrationFlowTest < AuthenticationFlowTest
+class RegistrationFlowTest < ActionDispatch::IntegrationTest
+  include SessionHelpers
+
   setup do
     @user = users(:one)
     @user_params = {

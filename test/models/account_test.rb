@@ -14,7 +14,7 @@ class AccountTest < ActiveSupport::TestCase
 
   # Associations
   test "should test all accounts associations" do
-    %i[user project_collaborators projects].each do |association|
+    %i[user project_collaborators project_stakeholders collaboration_projects stakeholder_projects].each do |association|
       assert_association @account, association
     end
   end
@@ -64,5 +64,9 @@ class AccountTest < ActiveSupport::TestCase
 
   test "should delete project_collaborators if account is destroyed" do
     assert_difference("ProjectCollaborator.count", -@account.project_collaborators.count) { @account.destroy }
+  end
+
+  test "should delete project_stakeholders if account is destroyed" do
+    assert_difference("ProjectStakeholder.count", -@account.project_stakeholders.count) { @account.destroy }
   end
 end

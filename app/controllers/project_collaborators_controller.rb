@@ -1,5 +1,6 @@
 class ProjectCollaboratorsController < ApplicationController
-  turbo_only only: %i[new edit destroy]
+  turbo_only only: %i[new create edit update destroy]
+
   before_action :set_project
   before_action :set_project_collaborator, only: %i[edit update destroy]
   before_action :set_accounts, only: %i[new create edit update]

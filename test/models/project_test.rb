@@ -13,7 +13,7 @@ class ProjectTest < ActiveSupport::TestCase
 
   # Associations
   test "should check all associations of project" do
-    %i[project_collaborators collaborators].each do |association|
+    %i[project_collaborators collaborators project_stakeholders stakeholders].each do |association|
       assert_association @project, association
     end
   end
@@ -56,13 +56,19 @@ class ProjectTest < ActiveSupport::TestCase
   end
 
   # Callbacks
-  test "should create a project_collaborator for owner if owner_account is present" do
+  test "should create a project_collaborator and project_stakeholder for owner if owner_account is present" do
     account = accounts(:account_with_no_records)
 
-    assert_difference("ProjectCollaborator.count") { Project.create @project_params.merge(owner_account: account) }
+    assert_difference -> { ProjectCollaborator.count } => 1, -> { ProjectStakeholder.count } => 1 do
+      Project.create @project_params.merge(owner_account: account)
+    end
   end
 
   test "should delete project_collaborator associations if the respective project is deleted" do
     assert_difference("ProjectCollaborator.count", -@project.project_collaborators.count) { @project.destroy }
+  end
+
+  test "should delete project_stakeholder associations if the respective project is deleted" do
+    assert_difference("ProjectStakeholder.count", -@project.project_stakeholders.count) { @project.destroy }
   end
 end

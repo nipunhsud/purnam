@@ -16,6 +16,7 @@
     <div class="flex flex-row gap-2.5 mt-4">
       <%= link_to 'Visit', project_path(@project.id), class: 'btn-primary hover:bg-primary-500', data: { turbo_frame: '_top' } %>
       <%= link_to 'Edit', edit_project_path(@project.id), class: 'btn-primary hover:bg-primary-500', data: { turbo_stream: true } %>
+      <%= button_to 'Delete', project_path(@project.id), method: :delete, class: 'btn-primary hover:bg-primary-500', data: { turbo_stream: true } %>
     </div>
   </div>
 </turbo-frame>
