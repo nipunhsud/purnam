@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_02_223520) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_09_073221) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -32,6 +32,16 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_02_223520) do
     t.index ["account_id", "project_id"], name: "index_project_collaborators_on_account_id_and_project_id", unique: true
     t.index ["account_id"], name: "index_project_collaborators_on_account_id"
     t.index ["project_id"], name: "index_project_collaborators_on_project_id"
+  end
+
+  create_table "project_stakeholders", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_project_stakeholders_on_account_id"
+    t.index ["project_id", "account_id"], name: "index_project_stakeholders_on_project_id_and_account_id", unique: true
+    t.index ["project_id"], name: "index_project_stakeholders_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -63,5 +73,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_02_223520) do
   add_foreign_key "accounts", "users"
   add_foreign_key "project_collaborators", "accounts"
   add_foreign_key "project_collaborators", "projects"
+  add_foreign_key "project_stakeholders", "accounts"
+  add_foreign_key "project_stakeholders", "projects"
   add_foreign_key "sessions", "users"
 end

@@ -3,13 +3,16 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
 
   def index
-    @projects = current_account.projects.joins(:project_collaborators).distinct.select("projects.*", "project_collaborators.role")
+    @collaboration_projects = current_account.collaboration_projects
+  end
+
+  def stakeholder
+    @stakeholder_projects = current_account.stakeholder_projects
   end
 
   def show
-    cols = [ "accounts.*", "project_collaborators.role", "project_collaborators.id as project_collaborator_id" ]
-
-    @collaborators = @project.collaborators.joins(:project_collaborators).distinct.select(*cols)
+    @collaborators = @project.project_collaborators
+    @stakeholders = @project.project_stakeholders
   end
 
   def new
@@ -22,14 +25,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
 
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to projects_path, notice: "Project was successfully created." }
-        format.turbo_stream
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
-    end
+    render :new, status: :unprocessable_entity unless @project.save
   end
 
   def update
@@ -52,6 +48,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.expect(project: %i[ name description start_date end_date ]).merge(owner_account: current_account)
+      params.expect(project: %i[name description start_date end_date]).merge(owner_account: current_account)
     end
 end

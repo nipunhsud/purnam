@@ -9,7 +9,7 @@
     <h1 class="font-bold text-4xl">Projects</h1>
     <div>
       <%= link_to "New project", new_project_path, class: "btn-primary", data: { turbo_frame: :new_project, turbo_stream: true } %>
-      <%= link_to "Stakeholder Projects", stakeholder_projects_path, class: "btn-primary" %>
+      <%= link_to "Collaboration Projects", projects_path, class: "btn-primary" %>
     </div>
 
   </div>
@@ -17,6 +17,6 @@
   <%= turbo_frame_tag :new_project %>
 
   <div id="projects" class="min-w-full flex flex-col gap-2.5 my-4">
-    <%= components ProjectComponent, @collaboration_projects %>
+    <%= components ProjectComponent, @stakeholder_projects %>
   </div>
 </div>

@@ -60,3 +60,15 @@ projects.each do |project|
 
   ProjectCollaborator.create(project_collaborator_hashes)
 end
+
+# Seed Project Stakeholders
+projects.each do |project|
+  existing_stakeholders = project.stakeholders
+  possible_candidate_stakeholders = Account.excluding(existing_stakeholders)
+
+  project_stakeholder_hashes = possible_candidate_stakeholders.sample(rand(2..4)).map do |stakeholder|
+    { project:, account: stakeholder }
+  end
+
+  ProjectStakeholder.create(project_stakeholder_hashes)
+end

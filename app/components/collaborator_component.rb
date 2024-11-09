@@ -3,7 +3,7 @@ class CollaboratorComponent < ViewComponent::Base
 
   def initialize(collaborator:)
     @collaborator = collaborator
-    @role = ProjectCollaborator.roles.key(@collaborator.role).to_sym
+    @role = @collaborator.role
 
     prepare_colors
   end

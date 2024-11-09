@@ -1,19 +1,41 @@
 <div class="mx-auto md:w-2/3 w-full flex">
   <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
+    <section>
+      <%= link_to 'Back To Projects', projects_path, class: 'btn-primary mx-auto' %>
 
-    <div id="<%= dom_id @project %>">
-      <p class="my-5">
-        <strong class="block font-medium mb-1">Name:</strong>
-        <%= @project.name %>
-      </p>
-    </div>
+      <div id="<%= dom_id @project %>">
+        <p class="my-5">
+          <strong class="block font-medium mb-1">Name:</strong>
+          <%= @project.name %>
+        </p>
+        <p class="my-5">
+          <strong class="block font-medium mb-1">Description: </strong>
+          <%= @project.description %>
+        </p>
+        <div class="flex gap-2.5 items-center">
+          <%= component DateEventComponent, date: @project.start_date, color: :emerald %>
+          <span>to</span>
+          <%= component DateEventComponent, date: @project.end_date, color: :rose %>
+        </div>
+      </div>
 
-    <h4 class="text-2xl font-bold my-2.5">Collaborators</h4>
-    <div id="project_collaborators" class="flex flex-col gap-2.5">
-      <%= components CollaboratorComponent, @collaborators %>
-    </div>
+      <h4 class="text-2xl font-bold my-2.5">Collaborators</h4>
+      <div id="project_collaborators" class="flex flex-col gap-2.5">
+        <%= components CollaboratorComponent, @collaborators %>
+      </div>
+
+      <%= link_to 'Add New Collaborator', new_project_project_collaborator_path(@project), class: 'btn-primary mt-4', data: { turbo_frame: :new_project_collaborator, turbo_stream: true } %>
+      <%= turbo_frame_tag :new_project_collaborator %>
+    </section>
+
+    <section class="mx-auto mt-8">
+      <h4 class="text-2xl font-bold my-2.5">Stakeholders</h4>
+      <div id="project_stakeholders" class="flex flex-col gap-2.5">
+        <%= components StakeholderComponent, @stakeholders %>
+      </div>
+
+      <%= link_to 'Add New Stakeholder', new_project_project_stakeholder_path(@project), class: 'btn-primary mt-4', data: { turbo_frame: :new_project_stakeholder, turbo_stream: true } %>
+      <%= turbo_frame_tag :new_project_stakeholder %>
+    </section>
   </div>
 </div>

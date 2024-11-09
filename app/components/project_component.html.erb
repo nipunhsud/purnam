@@ -4,9 +4,6 @@
     <p>
       <h5 class="font-bold text-xl flex items-center gap-4">
         <span class="<%= @text_color %>"><%= @project.name %></span>
-        <button class="text-xs font-medium rounded-full px-2 py-1 border <%= "#{@bg_color} #{@border_color} #{@text_color}" %>">
-          <%= ProjectCollaborator.roles.key(@project.role).titleize %>
-        </button>
       </h5>
       <p><%= @project.description %></p>
     </p>
