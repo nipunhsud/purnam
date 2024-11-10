@@ -28,4 +28,21 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  app: Purnam
+
+  # Controller and Views
+
+  sessions:
+    new:
+      title: Sign In
+    create:
+      try_again: Try another email address or password
+      welcome: Welcome!
+    destroy:
+      logged_out: Logged Out Successfully!
+
+  users:
+    new:
+      title: Sign Up
+    create:
+      welcome: Welcome!

@@ -2,6 +2,12 @@
 
 one:
   name: MyString
+  description: <%= Faker::Lorem.paragraph %>
+  start_date: <%= 10.days.ago %>
+  end_date: <%= 20.days.from_now %>
 
 two:
   name: MyString
+  description: <%= Faker::Lorem.paragraph %>
+  start_date: <%= 10.days.ago %>
+  end_date: <%= 20.days.from_now %>

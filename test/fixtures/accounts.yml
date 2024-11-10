@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  user: one
+
+two:
+  first_name: MyString
+  last_name: MyString
+  user: two
+
+account_with_no_records:
+  first_name: <%= Faker::Name.first_name %>
+  last_name: <%= Faker::Name.last_name %>
+  user: user_with_no_records
