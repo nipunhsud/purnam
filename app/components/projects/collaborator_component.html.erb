@@ -1,0 +1,15 @@
+<turbo-frame
+  id="<%= dom_id @collaborator %>"
+  class="flex items-center gap-2.5 <%= @text_color %>"
+>
+  <span>
+    <%= @collaborator.account.full_name %>
+  </span>
+  <span
+    class="<%= @border_color %> text-xs rounded-full px-2.5 py-0.5 border"
+  >
+    <%= @role.to_s.titleize %>
+  </span>
+  <%= button_to 'Delete Collaborator', project_project_collaborator_path(@collaborator.project_id, @collaborator.id), method: :delete, class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer' %>
+  <%= link_to 'Edit Collaborator', edit_project_project_collaborator_path(@collaborator.project_id, @collaborator.id), class: 'bg-white text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer', data: { turbo_stream: true } %>
+</turbo-frame>

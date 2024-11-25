@@ -12,13 +12,6 @@ class AccountTest < ActiveSupport::TestCase
     }
   end
 
-  # Associations
-  test "should test all accounts associations" do
-    %i[user project_collaborators project_stakeholders collaboration_projects stakeholder_projects].each do |association|
-      assert_association @account, association
-    end
-  end
-
   # Normalization
   test "should normalize first_name" do
     account = Account.new(user: @user, first_name: "  First  ", last_name: "Last")

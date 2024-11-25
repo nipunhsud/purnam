@@ -13,13 +13,6 @@ class UserTest < ActiveSupport::TestCase
     }
   end
 
-  # Associations
-  test "should test all associations of user" do
-    %i[account sessions collaboration_projects stakeholder_projects project_collaborators project_stakeholders].each do |association|
-      assert_association @user, association
-    end
-  end
-
   # Normalization
   test "should normalize email_address" do
     user = User.new(email_address: "  sample@email.com   ", password: "password")

@@ -30,6 +30,18 @@
 en:
   app: Purnam
 
+  navigation:
+    blog: Blog
+    events: Events
+    faq: FAQ
+    login: Login
+    projects: Projects
+    sign_out: Sign Out
+    sign_up: Sign Up
+    solutions: Solutions
+    support: Support
+    terms_of_use: Terms of Use
+
   # Controller and Views
 
   sessions:
@@ -40,6 +52,27 @@ en:
       welcome: Welcome!
     destroy:
       logged_out: Logged Out Successfully!
+
+  static:
+    index:
+      application: Applications
+      application_integrations: Purnam provides an easy to use API for the following applications
+      call_to_action: Ready to get started with
+      demo: Request a demo
+      explore: Explore
+      hero_title: Marketplace of powerful AI agents
+      hero_subtitle: Build and integrate AI agents for your business
+      technology: Technology
+      technology_usecase: Use an agent for your use case
+      technology_usecase_description: Use our agents from our library
+      try_now: Try right now!
+      features:
+        agents:
+          title: Agents Marketplace
+          description: Add agents with your frameworks and for your businesses and use them however you want.
+        integration:
+          title: Seamless Integration
+          description: Use these agents in combinations of LLMS, API calls, other agents and increase productivity.
 
   users:
     new:

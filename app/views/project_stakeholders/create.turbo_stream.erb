@@ -1,5 +1,5 @@
 <%= turbo_stream.update :new_project_stakeholder %>
 
 <%= turbo_stream.append :project_stakeholders do %>
-  <%= component StakeholderComponent, stakeholder: @project_stakeholder %>
+  <%= component Projects::StakeholderComponent, stakeholder: @project_stakeholder %>
 <% end %>

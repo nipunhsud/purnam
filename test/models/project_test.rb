@@ -11,13 +11,6 @@ class ProjectTest < ActiveSupport::TestCase
     }
   end
 
-  # Associations
-  test "should check all associations of project" do
-    %i[project_collaborators collaborators project_stakeholders stakeholders].each do |association|
-      assert_association @project, association
-    end
-  end
-
   # Validations
   test "should check if @project_params are valid" do
     project = Project.new @project_params

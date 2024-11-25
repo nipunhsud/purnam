@@ -1,7 +1,7 @@
 <div class="mx-auto md:w-2/3 w-full flex">
   <div class="mx-auto">
     <section>
-      <%= link_to 'Back To Projects', projects_path, class: 'btn-primary mx-auto' %>
+      <%= link_to 'Back To Projects', projects_path, class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer mx-auto' %>
 
       <div id="<%= dom_id @project %>">
         <p class="my-5">
@@ -13,28 +13,28 @@
           <%= @project.description %>
         </p>
         <div class="flex gap-2.5 items-center">
-          <%= component DateEventComponent, date: @project.start_date, color: :emerald %>
+          <%= component Projects::DateEventComponent, date: @project.start_date, color: :emerald %>
           <span>to</span>
-          <%= component DateEventComponent, date: @project.end_date, color: :rose %>
+          <%= component Projects::DateEventComponent, date: @project.end_date, color: :rose %>
         </div>
       </div>
 
       <h4 class="text-2xl font-bold my-2.5">Collaborators</h4>
       <div id="project_collaborators" class="flex flex-col gap-2.5">
-        <%= components CollaboratorComponent, @collaborators %>
+        <%= components Projects::CollaboratorComponent, @collaborators %>
       </div>
 
-      <%= link_to 'Add New Collaborator', new_project_project_collaborator_path(@project), class: 'btn-primary mt-4', data: { turbo_frame: :new_project_collaborator, turbo_stream: true } %>
+      <%= link_to 'Add New Collaborator', new_project_project_collaborator_path(@project), class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer mt-4', data: { turbo_frame: :new_project_collaborator, turbo_stream: true } %>
       <%= turbo_frame_tag :new_project_collaborator %>
     </section>
 
     <section class="mx-auto mt-8">
       <h4 class="text-2xl font-bold my-2.5">Stakeholders</h4>
       <div id="project_stakeholders" class="flex flex-col gap-2.5">
-        <%= components StakeholderComponent, @stakeholders %>
+        <%= components Projects::StakeholderComponent, @stakeholders %>
       </div>
 
-      <%= link_to 'Add New Stakeholder', new_project_project_stakeholder_path(@project), class: 'btn-primary mt-4', data: { turbo_frame: :new_project_stakeholder, turbo_stream: true } %>
+      <%= link_to 'Add New Stakeholder', new_project_project_stakeholder_path(@project), class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer mt-4', data: { turbo_frame: :new_project_stakeholder, turbo_stream: true } %>
       <%= turbo_frame_tag :new_project_stakeholder %>
     </section>
   </div>

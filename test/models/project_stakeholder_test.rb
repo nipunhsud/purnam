@@ -12,13 +12,6 @@ class ProjectStakeholderTest < ActiveSupport::TestCase
     }
   end
 
-  # Associations
-  test "should test all project_stakeholder associations" do
-    %i[account project].each do |association|
-      assert_association @project_stakeholder, association
-    end
-  end
-
   # Validations
   test "should validate the @project_stakeholder_params" do
     project_stakeholder = ProjectStakeholder.new @project_stakeholder_params

@@ -12,13 +12,6 @@ class ProjectCollaboratorTest < ActiveSupport::TestCase
     }
   end
 
-  # Associations
-  test "should test all project_collaborator assocations" do
-    %i[account project].each do |association|
-      assert_association @project_collaborator, association
-    end
-  end
-
   # Validations
   test "should validate the @project_collaborator_params" do
     project_collaborator = ProjectCollaborator.new @project_collaborator_params

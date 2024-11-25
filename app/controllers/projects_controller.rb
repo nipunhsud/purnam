@@ -12,8 +12,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @collaborators = @project.project_collaborators
-    @stakeholders = @project.project_stakeholders
+    @collaborators = @project.project_collaborators.includes(:account)
+    @stakeholders = @project.project_stakeholders.includes(:account)
   end
 
   def new

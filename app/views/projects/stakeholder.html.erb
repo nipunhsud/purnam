@@ -8,8 +8,8 @@
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Projects</h1>
     <div>
-      <%= link_to "New project", new_project_path, class: "btn-primary", data: { turbo_frame: :new_project, turbo_stream: true } %>
-      <%= link_to "Collaboration Projects", projects_path, class: "btn-primary" %>
+      <%= link_to "New project", new_project_path, class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer', data: { turbo_frame: :new_project, turbo_stream: true } %>
+      <%= link_to "Collaboration Projects", projects_path, class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer' %>
     </div>
 
   </div>
@@ -17,6 +17,6 @@
   <%= turbo_frame_tag :new_project %>
 
   <div id="projects" class="min-w-full flex flex-col gap-2.5 my-4">
-    <%= components ProjectComponent, @stakeholder_projects %>
+    <%= components Projects::ProjectComponent, @stakeholder_projects %>
   </div>
 </div>

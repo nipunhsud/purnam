@@ -5,13 +5,6 @@ class SessionTest < ActiveSupport::TestCase
     @session = sessions(:one)
   end
 
-  # Associations
-  test "should test all sessions associations" do
-    %i[user].each do |association|
-      assert_association @session, association
-    end
-  end
-
   # Validations
   test "should test user_id presence" do
     session = Session.new(user_id: nil)

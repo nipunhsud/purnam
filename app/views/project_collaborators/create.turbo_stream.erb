@@ -1,5 +1,5 @@
 <%= turbo_stream.update :new_project_collaborator %>
 
 <%= turbo_stream.append :project_collaborators do %>
-  <%= component CollaboratorComponent, collaborator: @project_collaborator %>
+  <%= component Projects::CollaboratorComponent, collaborator: @project_collaborator %>
 <% end %>
