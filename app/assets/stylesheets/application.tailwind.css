@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-  .btn-primary {
-    @apply rounded-lg py-3 px-5 bg-primary-600 text-white inline-block font-medium cursor-pointer
+  .flex-center {
+    @apply flex items-center justify-center;
   }
 }

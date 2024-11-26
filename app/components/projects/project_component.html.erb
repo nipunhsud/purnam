@@ -1,0 +1,22 @@
+
+<turbo-frame id="<%= dom_id @project %>">
+  <div id="<%= dom_id @project %>" class="border <%= @border_color %> rounded-xl py-4 px-6">
+    <p>
+      <h5 class="font-bold text-xl flex items-center gap-4">
+        <span class="<%= @text_color %>"><%= @project.name %></span>
+      </h5>
+      <p><%= @project.description %></p>
+    </p>
+    <h5 class="font-semibold mt-4 mb-2.5">Project Duration</h5>
+    <div class="flex gap-2.5 items-center">
+      <%= component Projects::DateEventComponent, date: @project.start_date, color: :emerald %>
+      <span>to</span>
+      <%= component Projects::DateEventComponent, date: @project.end_date, color: :rose %>
+    </div>
+    <div class="flex flex-row gap-2.5 mt-4">
+      <%= link_to 'Visit', project_path(@project.id), class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer', data: { turbo_frame: '_top' } %>
+      <%= link_to 'Edit', edit_project_path(@project.id), class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer', data: { turbo_stream: true } %>
+      <%= button_to 'Delete', project_path(@project.id), method: :delete, class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer', data: { turbo_stream: true } %>
+    </div>
+  </div>
+</turbo-frame>

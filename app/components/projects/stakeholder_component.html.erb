@@ -1,0 +1,8 @@
+<turbo-frame
+  id="<%= dom_id @stakeholder %>"
+  class="flex items-center gap-2.5"
+>
+  <span><%= @stakeholder.account.full_name %></span>
+  <%= button_to 'Delete Stakeholder', project_project_stakeholder_path(@stakeholder.project_id, @stakeholder.id), method: :delete, class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer' %>
+  <%= link_to 'Edit Stakeholder', edit_project_project_stakeholder_path(@stakeholder.project_id, @stakeholder.id), class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer', data: { turbo_stream: true } %>
+</turbo-frame>

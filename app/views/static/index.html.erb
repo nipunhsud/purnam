@@ -1,1 +1,68 @@
-<h1 class="text-3xl font-black"><%= t :app %></h1>
+<%= component Shared::NavbarComponent %>
+<%= component Shared::SidebarComponent %>
+
+<%# Hero %>
+<section class="flex items-center flex-col mt-36 @container">
+  <h4 class="text-gray-700 font-black text-center max-w-2xl text-balance mx-2.5 text-4xl @2xl:text-6xl"><%= t '.hero_title' %></h4>
+  <p class="mt-4 text-gray-500 font-light text-center max-w-2xl text-balance text-lg @2xl:text-2xl"><%= t '.hero_subtitle' %></p>
+  <div class="mt-8">
+    <button class="bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer"><%= t '.explore' %></button>
+    <button class="inline-block rounded-lg px-3.5 py-2 border-2 border-primary-500 font-medium text-primary-600 hover:text-white hover:bg-primary-500"><%= t '.demo' %></button>
+  </div>
+</section>
+
+<%# Features %>
+<section class="flex items-center flex-col mt-40 @container text-center">
+  <p class="uppercase text-gray-400 tracking-wider"><%= t '.technology' %></p>
+  <h4 class="font-black mt-6 @xl:mt-10 mb-2.5 @xl:mb-4 text-2xl @xl:text-4xl text-gray-700 mx-2.5 text-center text-balance"><%= t '.technology_usecase' %></h4>
+  <p class="text-gray-500 text-xl @xl:text-2xl"><%= t '.technology_usecase_description' %></p>
+
+  <div class="flex flex-col gap-16 max-w-2xl mt-20 mx-6">
+    <div class="flex gap-6 items-center flex-col @xl:flex-row text-center @xl:text-left">
+      <span class="flex-center p-4 bg-primary-100 rounded-full w-20 h-20 border-2 border-primary-500">
+        <%= icon_svg :brain, class: 'w-12 h-12 stroke-primary-500 fill-primary-500' %>
+      </span>
+      <div class="flex flex-col justify-between">
+        <h6 class="font-bold text-gray-600 text-xl"><%= t '.features.agents.title' %></h6>
+        <p class="text-gray-700 text-lg mt-4 text-balance"><%= t '.features.agents.description' %></p>
+      </div>
+    </div>
+    <div class="flex gap-6 items-center flex-col @xl:flex-row text-center @xl:text-left">
+      <span class="flex-center p-4 bg-primary-100 rounded-full w-20 h-20 border-2 border-primary-500">
+        <%= icon_svg :network, class: 'w-12 h-12 stroke-primary-500 fill-primary-500' %>
+      </span>
+      <div class="flex flex-col justify-between">
+        <h6 class="font-bold text-gray-600 text-xl"><%= t '.features.integration.title' %></h6>
+        <p class="text-gray-700 text-lg mt-4 text-balance"><%= t '.features.integration.description' %></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# Applications %>
+<section class="@container flex justify-center items-center mt-40 mx-6">
+  <div class="@xl:max-w-3xl @lg:max-w-2xl text-center">
+    <p class="uppercase text-gray-400 tracking-wider"><%= t '.applications' %></p>
+    <h4 class="text-gray-700 font-bold text-3xl @xl:text-4xl mt-6 mb-12 text-balance"><%= t '.application_integrations' %></h4>
+
+    <div class="flex flex-wrap gap-24 items-center justify-center">
+      <% %w[Slack Trello Jira Notion].each do |app| %>
+        <div class="flex flex-col items-center gap-4 rounded">
+          <%= icon_svg app.underscore, class: 'w-24 h-24' %>
+          <span class="text-center font-light text-gray-700 text-xl"><%= app %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<%# Call to Action %>
+<section class="mt-20 mb-28 lg:mt-48 lg:mb-32 flex items-center flex-col gap-4 @container mx-4">
+  <h3 class="font-bold text-balance text-center max-w-3xl text-3xl @lg:text-4xl @xl:text-5xl @2xl:text-6xl text-gray-600">
+    <%= t '.call_to_action' %>
+    <span class="text-primary-500 font-black">
+      <%= t :app %>?
+    </span>
+  </h3>
+  <button class="mt-6 px-6 py-3.5 bg-primary-500 text-white font-semibold rounded-lg text-lg"><%= t '.try_now' %></button>
+</section>

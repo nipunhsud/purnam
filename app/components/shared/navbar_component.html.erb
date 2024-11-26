@@ -1,0 +1,30 @@
+<header
+  class="@container items-center justify-center mt-8 sticky top-0 hidden md:flex"
+  data-controller="navbar"
+  data-navbar-top-classes-value="<%= ['w-screen', 'px-8', 'rounded-none', 'border-none', 'shadow-none', 'gap-4', 'mt-0'].to_json %>"
+  data-navbar-scroll-classes-value="<%= ['w-96', 'p-4', 'rounded-xl', 'border', 'shadow-lg', 'gap-12', 'mt-8'].to_json %>"
+  data-navbar-threshold-value="40"
+  data-action="scroll@window->navbar#switchClasses"
+>
+  <div
+    class="flex items-center justify-between bg-white transition-all ease-linear duration-300 min-w-fit"
+    data-navbar-target="navbar"
+  >
+    <h1 class="text-xl @xs:text-3xl font-black text-primary-500"><%= t :app %></h1>
+    <nav>
+      <ul class="flex flex-row gap-4">
+        <% %w[Projects Solutions Blog Events].each do |tab| %>
+          <li class="text-gray-700 font-medium"><%= link_to t("navigation.#{tab.underscore}"), '#' %></li>
+        <% end %>
+      </ul>
+    </nav>
+    <nav class="flex gap-2.5">
+      <% if authenticated? %>
+        <%= button_to t('navigation.sign_out'), session_path, method: :delete, class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer' %>
+      <% else %>
+        <%= link_to t('navigation.login'), new_session_path, class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer' %>
+        <%= link_to t('navigation.sign_up'), new_user_path, class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer' %>
+      <% end %>
+    </nav>
+  </div>
+</header>
