@@ -2,7 +2,7 @@
 <%= component Shared::SidebarComponent %>
 
 <%# Hero %>
-<section class="flex items-center flex-col mt-60 @container">
+<section class="flex items-center flex-col mt-36 @container">
   <h4 class="text-gray-700 font-black text-center max-w-xl @xl:max-w-3xl text-balance mx-2.5 text-4xl @2xl:text-6xl"><%= t '.hero_title' %></h4>
   <p class="mt-4 text-gray-500 font-light text-center max-w-2xl text-balance text-lg @2xl:text-2xl"><%= t '.hero_subtitle' %></p>
   <div class="mt-8">
@@ -13,7 +13,7 @@
 </section>
 
 <%# Features %>
-<section class="flex items-center flex-col mt-60 @container text-center">
+<section class="flex items-center flex-col mt-40 @container text-center">
   <p class="uppercase text-gray-400 tracking-wider"><%= t '.technology' %></p>
   <h4 class="font-black mt-6 @xl:mt-10 mb-2.5 @xl:mb-4 text-2xl @xl:text-4xl text-gray-700 mx-2.5 text-center text-balance"><%= t '.technology_usecase' %></h4>
   <p class="text-gray-500 text-xl @xl:text-2xl"><%= t '.technology_usecase_description' %></p>
@@ -42,15 +42,15 @@
 
 <%# Applications %>
 <section class="@container flex justify-center items-center mt-40 mx-6">
-  <div class="@xl:max-w-3xl @lg:max-w-2xl text-center">
+  <div class="@xl:max-w-4xl @lg:max-w-3xl text-center">
     <p class="uppercase text-gray-400 tracking-wider"><%= t '.applications' %></p>
     <h4 class="text-gray-700 font-bold text-3xl @xl:text-4xl mt-6 mb-12 text-balance"><%= t '.application_integrations' %></h4>
 
     <div class="flex flex-wrap gap-24 items-center justify-center">
-      <% %w[Slack Trello Jira Notion].each do |app| %>
+      <% %w[web_search gmail outlook slack notion].each do |app| %>
         <div class="flex flex-col items-center gap-4 rounded">
-          <%= icon_svg app.underscore, class: 'w-24 h-24' %>
-          <span class="text-center font-light text-gray-700 text-xl"><%= app %></span>
+          <%= icon_svg app, class: 'w-24 h-24' %>
+          <span class="text-center text-gray-700 text-xl font-semibold"><%= app.titleize %></span>
         </div>
       <% end %>
     </div>
@@ -58,7 +58,7 @@
 </section>
 
 <%# Call to Action %>
-<section class="mt-20 mb-28 lg:mt-48 lg:mb-32 flex items-center flex-col gap-4 @container mx-4">
+<section class="mt-20 mb-28 lg:mt-52 lg:mb-32 flex items-center flex-col gap-4 @container mx-4">
   <h3 class="font-bold text-balance text-center max-w-4xl text-2xl @lg:text-3xl @xl:text-4xl @2xl:text-4xl text-gray-600">
     <%= t '.call_to_action_html' %>
   </h3>

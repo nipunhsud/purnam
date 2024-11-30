@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ['navbar'];
   static values = {
     // Scroll Threshold - Classes to when till how far the page has been scrolled.
-    threshold: { type: Number, default: 20 },
+    threshold: { type: Number, default: 30 },
     // Classes to apply when the page is not scrolled.
     topClasses: { type: Array },
     // Classes to apply when the page has been scrolled

@@ -71,7 +71,7 @@ en:
     index:
       application: Applications
       application_integrations: Purnam provides an easy to use API for the following applications
-      call_to_action_html: Experience the power of AI—<i>try our Christmas Gifting Agent for free today</i>!
+      call_to_action_html: Experience the <strong class="text-primary-500">power of AI</strong>—<i>try our Christmas Gifting Agent for free today</i>!
       hero_title: World of Helper Agents
       hero_subtitle: Build and integrate agents with your workflow.
       register_now: Register Now
@@ -82,10 +82,10 @@ en:
       features:
         agents:
           title: Agents
-          description: Maximize your productivity by leveraging these agents alongside LLMs, API calls, and other integrated agents. Build smarter, faster workflows.
+          description: Maximize your productivity by leveraging these agents. Build semi or fully autonomous workflows.
         integration:
           title: Seamless Integration
-          description: Seamlessly integrate agents with your frameworks to power your business. Customize and deploy them the way you need.
+          description: Seamlessly integrate with our agents to power your business. Customize and deploy them the way you need.
 
   users:
     new:
