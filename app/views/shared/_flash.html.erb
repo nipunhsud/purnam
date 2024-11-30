@@ -1,7 +1,7 @@
 <% if alert || notice %>
   <div
     data-controller="flash"
-    class="px-4 py-2.5 font-bold <%= 'bg-danger-50 text-danger-500' if alert.present? %> <%= 'bg-success-50 text-success-500' if notice.present? %>"
+    class="px-4 py-2.5 font-bold rounded-xl <%= 'bg-danger-50 text-danger-500' if alert.present? %> <%= 'bg-success-50 text-success-500' if notice.present? %>"
   >
     <%= alert || notice %>
   </div>

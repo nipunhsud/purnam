@@ -1,5 +1,5 @@
 module Projects
-  class ProjectComponent < ViewComponent::Base
+  class ProjectComponent < ApplicationComponent
     delegate :component, to: :helpers
 
     def initialize(project:)

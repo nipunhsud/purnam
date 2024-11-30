@@ -1,5 +1,5 @@
 module Projects
-  class StakeholderComponent < ViewComponent::Base
+  class StakeholderComponent < ApplicationComponent
     def initialize(stakeholder:)
       @stakeholder = stakeholder
     end

@@ -1,5 +1,5 @@
 module Projects
-  class CollaboratorComponent < ViewComponent::Base
+  class CollaboratorComponent < ApplicationComponent
     include Colors::ProjectColorsHelper
 
     def initialize(collaborator:)
