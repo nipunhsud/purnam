@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   allow_unauthenticated_access only: %i[new create]
 
+  layout "base"
+
   before_action :require_unauthentication, only: %i[new create]
 
   def new

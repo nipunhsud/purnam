@@ -2,17 +2,18 @@
 <%= component Shared::SidebarComponent %>
 
 <%# Hero %>
-<section class="flex items-center flex-col mt-36 @container">
-  <h4 class="text-gray-700 font-black text-center max-w-2xl text-balance mx-2.5 text-4xl @2xl:text-6xl"><%= t '.hero_title' %></h4>
+<section class="flex items-center flex-col mt-60 @container">
+  <h4 class="text-gray-700 font-black text-center max-w-xl @xl:max-w-3xl text-balance mx-2.5 text-4xl @2xl:text-6xl"><%= t '.hero_title' %></h4>
   <p class="mt-4 text-gray-500 font-light text-center max-w-2xl text-balance text-lg @2xl:text-2xl"><%= t '.hero_subtitle' %></p>
   <div class="mt-8">
-    <button class="bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer"><%= t '.explore' %></button>
-    <button class="inline-block rounded-lg px-3.5 py-2 border-2 border-primary-500 font-medium text-primary-600 hover:text-white hover:bg-primary-500"><%= t '.demo' %></button>
+    <%= link_to new_user_path do %>
+      <button class="bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer hover:bg-primary-400"><%= t '.register_now' %></button>
+    <% end %>
   </div>
 </section>
 
 <%# Features %>
-<section class="flex items-center flex-col mt-40 @container text-center">
+<section class="flex items-center flex-col mt-60 @container text-center">
   <p class="uppercase text-gray-400 tracking-wider"><%= t '.technology' %></p>
   <h4 class="font-black mt-6 @xl:mt-10 mb-2.5 @xl:mb-4 text-2xl @xl:text-4xl text-gray-700 mx-2.5 text-center text-balance"><%= t '.technology_usecase' %></h4>
   <p class="text-gray-500 text-xl @xl:text-2xl"><%= t '.technology_usecase_description' %></p>
@@ -58,11 +59,14 @@
 
 <%# Call to Action %>
 <section class="mt-20 mb-28 lg:mt-48 lg:mb-32 flex items-center flex-col gap-4 @container mx-4">
-  <h3 class="font-bold text-balance text-center max-w-3xl text-3xl @lg:text-4xl @xl:text-5xl @2xl:text-6xl text-gray-600">
-    <%= t '.call_to_action' %>
-    <span class="text-primary-500 font-black">
-      <%= t :app %>?
-    </span>
+  <h3 class="font-bold text-balance text-center max-w-4xl text-2xl @lg:text-3xl @xl:text-4xl @2xl:text-4xl text-gray-600">
+    <%= t '.call_to_action_html' %>
   </h3>
-  <button class="mt-6 px-6 py-3.5 bg-primary-500 text-white font-semibold rounded-lg text-lg"><%= t '.try_now' %></button>
+  <%= link_to new_user_path do %>
+    <button class="mt-6 px-6 py-3.5 bg-primary-500 text-white font-semibold rounded-lg text-lg"><%= t '.try_now' %></button>
+  <% end %>
 </section>
+
+<%= content_for :footer do %>
+  <%= component Shared::FooterComponent %>
+<% end %>

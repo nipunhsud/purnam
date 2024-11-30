@@ -1,4 +1,4 @@
 module Shared
-  class FooterComponent < ViewComponent::Base
+  class FooterComponent < ApplicationComponent
   end
 end

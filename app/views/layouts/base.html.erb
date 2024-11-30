@@ -27,11 +27,8 @@
     <div id="flash-container" class="fixed top-20 right-20">
       <%= render 'shared/flash' %>
     </div>
-    <main class="flex-center">
-      <div class="container">
-        <%= yield %>
-      </div>
+    <main>
+      <%= yield %>
     </main>
-    <%= yield :footer %>
   </body>
 </html>

@@ -1,5 +1,5 @@
 module Projects
-  class DateEventComponent < ViewComponent::Base
+  class DateEventComponent < ApplicationComponent
     include Colors::DateEventColorsHelper
 
     def initialize(date:, color:)

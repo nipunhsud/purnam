@@ -1,23 +1,43 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl"><%= t '.title' %></h1>
+<% content_for :title, "Sign In | #{t(:app)}" %>
 
-  <%= form_with url: session_path, class: "contents" do |form| %>
-    <div class="my-5">
-      <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address], class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+<div class="bg-gradient-to-tr from-primary-400 to-primary-900 flex-center w-full h-full min-w-screen min-h-screen">
+  <div class="mx-auto bg-white rounded-2xl max-w-md p-8 shadow-lg">
+    <%= link_to root_path, class: 'flex items-center' do %>
+      <%= icon_svg :arrow_left, variant: :fill, class: 'fill-primary-500 w-4 h-4' %>
+      <span class="text-sm text-primary-500 underline decoration-primary-500"><%= t 'common_phrases.back' %></span>
+    <% end %>
+
+    <div class="mt-4 mb-6">
+      <h1 class="font-bold text-3xl text-center text-primary-500 mb-2"><%= t '.title' %></h1>
+      <h4 class="text-gray-600 text-center"><%= t '.subtitle' %></h4>
     </div>
 
-    <div class="my-5">
-      <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-      <div class="inline">
-        <%= form.submit 'Sign In', class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 inline-block font-medium cursor-pointer' %>
+    <%= form_with url: session_path, class: "contents" do |form| %>
+      <div class="my-5 relative">
+        <%= icon_svg :envelope, variant: :fill, class: 'fill-primary-500 w-6 h-6 absolute left-2 top-1/2 -translate-y-1/2' %>
+        <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Email Address", value: params[:email_address], class: "pl-10 block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full focus:border-primary-500" %>
       </div>
 
-      <div class="mt-4 text-sm text-gray-500 sm:mt-0">
-        <%= link_to "Forgot password?", new_password_path, class: "text-gray-700 underline" %>
+      <div class="my-5">
+        <div class="relative" data-controller="password-toggle">
+          <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Password", maxlength: 72, class: "pl-10 pr-12 block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full focus:border-primary-500", data: { password_toggle_target: 'passwordField' } %>
+          <%= component Shared::PasswordToggleButtonComponent, target: 'showButton' do |button| %>
+            <%= button.with_icon_block do %>
+              <%= icon_svg :eye, variant: :fill, class: 'fill-primary-500	w-6 h-6' %>
+            <% end %>
+          <% end %>
+          <%= component Shared::PasswordToggleButtonComponent, target: 'hideButton' do |button| %>
+            <%= button.with_icon_block do %>
+              <%= icon_svg :eye_slash, variant: :fill, class: 'fill-primary-500	w-6 h-6' %>
+            <% end %>
+          <% end %>
+          <%= icon_svg :lock, variant: :fill, class: 'fill-primary-500 w-6 h-6 absolute left-2 top-1/2 -translate-y-1/2' %>
+        </div>
+        <%= link_to t('.forgot_password'), new_password_path, class: "mt-1 text-gray-700 block underline text-right" %>
       </div>
-    </div>
-  <% end %>
+
+      <%= form.submit t('common_phrases.sign_in'), class: 'bg-primary-500 text-white rounded-lg py-2 px-3.5 font-medium cursor-pointer w-full mt-8' %>
+      <%= link_to t('common_phrases.sign_up'), new_user_path, class: 'border-2 border-primary-500 text-primary-500 block text-center mt-2.5 rounded-lg py-2 px-3.5 font-medium cursor-pointer w-full' %>
+    <% end %>
+  </div>
 </div>

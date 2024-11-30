@@ -1,5 +1,5 @@
 module Shared
-  class NavbarComponent < ViewComponent::Base
+  class NavbarComponent < ApplicationComponent
     delegate :authenticated?, :unauthenticated?, to: :helpers
   end
 end

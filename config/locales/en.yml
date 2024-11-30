@@ -30,6 +30,13 @@
 en:
   app: Purnam
 
+  common_phrases:
+    back: Back
+    login: Login
+    sign_in: Sign In
+    sign_up: Sign Up
+    register: Register
+
   navigation:
     blog: Blog
     events: Events
@@ -44,8 +51,15 @@ en:
 
   # Controller and Views
 
+  passwords:
+    new:
+      title: Forgot Your Password
+      email_reset_instructions: Email Reset Instructions
+
   sessions:
     new:
+      forgot_password: Forgot Password?
+      subtitle: Book your AI Agent Today!
       title: Sign In
     create:
       try_again: Try another email address or password
@@ -57,25 +71,25 @@ en:
     index:
       application: Applications
       application_integrations: Purnam provides an easy to use API for the following applications
-      call_to_action: Ready to get started with
-      demo: Request a demo
-      explore: Explore
-      hero_title: Marketplace of powerful AI agents
-      hero_subtitle: Build and integrate AI agents for your business
+      call_to_action_html: Experience the power of AI—<i>try our Christmas Gifting Agent for free today</i>!
+      hero_title: World of Helper Agents
+      hero_subtitle: Build and integrate agents with your workflow.
+      register_now: Register Now
       technology: Technology
       technology_usecase: Use an agent for your use case
       technology_usecase_description: Use our agents from our library
       try_now: Try right now!
       features:
         agents:
-          title: Agents Marketplace
-          description: Add agents with your frameworks and for your businesses and use them however you want.
+          title: Agents
+          description: Maximize your productivity by leveraging these agents alongside LLMs, API calls, and other integrated agents. Build smarter, faster workflows.
         integration:
           title: Seamless Integration
-          description: Use these agents in combinations of LLMS, API calls, other agents and increase productivity.
+          description: Seamlessly integrate agents with your frameworks to power your business. Customize and deploy them the way you need.
 
   users:
     new:
+      subtitle: Sign Up today and use our AI agents!
       title: Sign Up
     create:
       welcome: Welcome!
