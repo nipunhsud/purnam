@@ -1,4 +1,4 @@
-require 'ostruct'
+require "ostruct"
 class TemporaryRecord < OpenStruct
   def model_name
     OpenStruct.new param_key:
