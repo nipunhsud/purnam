@@ -31,7 +31,7 @@ module SessionHelpers
       post session_url, params: { email_address: @user.email_address, password: "password" }
 
       assert_response :redirect
-      assert_redirected_to projects_url
+      assert_redirected_to root_url
 
       assert_equal flash[:notice], "Welcome!"
     end
