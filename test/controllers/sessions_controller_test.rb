@@ -16,14 +16,14 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to projects_url
   end
 
-  test "should post create" do
+  test "should allow user to login" do
     user = users(:one)
     assert_difference("Session.count") do
       post session_url, params: session_params(user.email_address)
     end
 
     assert_response :redirect
-    assert_redirected_to projects_url
+    assert_redirected_to root_url
   end
 
   test "should render error if login fails" do

@@ -22,7 +22,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_response :redirect
-    assert_redirected_to projects_url
+    assert_redirected_to root_url
   end
 
   test "should render error if user registration fails" do

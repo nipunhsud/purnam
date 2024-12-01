@@ -11,7 +11,8 @@
     data-navbar-target="navbar"
   >
     <h1 class="text-xl @xs:text-3xl font-black text-primary-500"><%= t :app %></h1>
-    <nav>
+    <%# TEMP: Hiding the navbar tabs %>
+    <nav class="hidden">
       <ul class="flex flex-row gap-4">
         <% %w[Projects Solutions Blog Events].each do |tab| %>
           <li class="text-gray-700 font-medium"><%= link_to t("navigation.#{tab.underscore}"), '#' %></li>

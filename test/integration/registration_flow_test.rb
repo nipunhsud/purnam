@@ -48,7 +48,7 @@ class RegistrationFlowTest < ActionDispatch::IntegrationTest
       post users_url, params: { user: @user_params }
 
       assert_response :redirect
-      assert_redirected_to projects_url
+      assert_redirected_to root_url
       flash[:notice] = "Welcome"
     end
 end
