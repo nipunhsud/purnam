@@ -76,8 +76,8 @@ en:
       hero_subtitle: Build and integrate agents with your workflow.
       register_now: Register Now
       technology: Technology
-      technology_usecase: Use an agent for your use case
-      technology_usecase_description: Use our agents from our library
+      technology_usecase: Agentic AI use cases
+      technology_usecase_description: Library of AI APIs, tools and agents to automate your processes. Cutomizable to to match your process flow.
       try_now: Try right now!
       features:
         agents:
