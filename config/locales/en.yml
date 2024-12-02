@@ -69,8 +69,8 @@ en:
 
   static:
     index:
-      application: Applications
-      application_integrations: Purnam provides an easy to use API for the following applications
+      application: Integrations
+      application_integrations: Agents that integrate with everyday tools to automate daily processes.
       call_to_action_html: Experience the <strong class="text-primary-500">power of AI</strong>—<i>try our Christmas Gifting Agent for free today</i>!
       hero_title: World of Helper Agents
       hero_subtitle: Build and integrate agents with your workflow.
