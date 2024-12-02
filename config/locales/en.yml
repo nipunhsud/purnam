@@ -71,13 +71,13 @@ en:
     index:
       application: Integrations
       application_integrations: Agents that integrate with everyday tools to automate daily processes.
-      call_to_action_html: Experience the <strong class="text-primary-500">power of AI</strong>—<i>try our Christmas Gifting Agent for free today</i>!
+      call_to_action_html: Experience the <strong class="text-primary-500">power of agentic AI</strong>—<i>try our Christmas Gifting Agent today</i>!
       hero_title: World of Helper Agents
       hero_subtitle: Build and integrate agents with your workflow.
       register_now: Register Now
       technology: Technology
       technology_usecase: Agentic AI use cases
-      technology_usecase_description: AI tools and agents to automate your processes. Cutomizable to to match your process flow.
+      technology_usecase_description: AI tools and agents to automate your processes. Cutomizable to your process flow.
       try_now: Try right now!
       features:
         agents:
