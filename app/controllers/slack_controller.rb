@@ -1,14 +1,24 @@
 class SlackController < ApplicationController
     def oauth_callback
-      auth = request.env['omniauth.auth']
+      code = params[:code]
+      uri = URI.parse('https://slack.com/api/oauth.v2.access')
+      response = Net::HTTP.post_form(uri, {
+        client_id: ENV['SLACK_CLIENT_ID'],
+        client_secret: ENV['SLACK_CLIENT_SECRET'],
+        code: code,
+        redirect_uri: ENV['SLACK_REDIRECT_URI']
+      })
+      data = JSON.parse(response.body)
   
-      user_token = auth['credentials']['token']
-      user_name = auth['info']['user']
-  
-      session[:slack_access_token] = user_token
-  
-      flash[:notice] = "Slack integration successful for #{user_name}!"
-      redirect_to root_path
+      if data['ok']
+        session[:slack_access_token] = data['authed_user']['access_token']
+        flash[:notice] = "Slack integration successful for user ID #{data['authed_user']['id']}!"
+        redirect_to root_path
+      else
+        flash[:alert] = "Slack OAuth failed: #{data['error']}"
+        redirect_to root_path
+      end
     end
-end
+  end
+  
   
